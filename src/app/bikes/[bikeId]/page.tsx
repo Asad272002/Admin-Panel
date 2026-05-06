@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Download } from "lucide-react";
-import { useMemo, useState } from "react";
+import { use, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -31,8 +31,9 @@ function money(cents: number) {
   return `$${(cents / 100).toFixed(2)}`;
 }
 
-export default function BikeDetailsPage({ params }: { params: { bikeId: string } }) {
-  const { data, isLoading, error } = useBikeDetails(params.bikeId);
+export default function BikeDetailsPage({ params }: { params: Promise<{ bikeId: string }> }) {
+  const { bikeId } = use(params);
+  const { data, isLoading, error } = useBikeDetails(bikeId);
   const checkout = useCheckout();
   const [receipt, setReceipt] = useState<PurchaseRequest | null>(null);
 
@@ -297,4 +298,3 @@ export default function BikeDetailsPage({ params }: { params: { bikeId: string }
     </div>
   );
 }
-

@@ -24,7 +24,7 @@ function createInitialState(): CatalogState {
       name: "Aurora Roadster",
       brand: "Aurum",
       year: 2024,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/20/BMX_bicycle.JPG",
+      imageUrl: "/harley-davidson-eeTJKC_wz34-unsplash.jpg",
       description:
         "A fast, lightweight road bike tuned for smooth handling and long rides. Premium components, clean geometry.",
     },
@@ -33,7 +33,7 @@ function createInitialState(): CatalogState {
       name: "Noir City",
       brand: "Monochrome",
       year: 2023,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/01/Bike.jpg",
+      imageUrl: "/kirill-petropavlov-f_gCjlNcVWo-unsplash.jpg",
       description:
         "A comfortable commuter with a silent ride and confident braking. Built for daily urban travel.",
     },
@@ -42,7 +42,7 @@ function createInitialState(): CatalogState {
       name: "Glacier Trail",
       brand: "Northline",
       year: 2025,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mountain_biking.JPG",
+      imageUrl: "/max-itin-7GeprSfVqLQ-unsplash.jpg",
       description:
         "A capable trail bike with responsive suspension and durable wheels. Perfect for mixed terrain adventures.",
     },
@@ -71,9 +71,9 @@ function getState(): CatalogState {
   const state = globalForCatalog.catalog;
 
   const seedImages: Record<string, string> = {
-    bike_aurora: "https://upload.wikimedia.org/wikipedia/commons/2/20/BMX_bicycle.JPG",
-    bike_noir: "https://upload.wikimedia.org/wikipedia/commons/0/01/Bike.jpg",
-    bike_glacier: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mountain_biking.JPG",
+    bike_aurora: "/harley-davidson-eeTJKC_wz34-unsplash.jpg",
+    bike_noir: "/kirill-petropavlov-f_gCjlNcVWo-unsplash.jpg",
+    bike_glacier: "/max-itin-7GeprSfVqLQ-unsplash.jpg",
   };
 
   for (const bike of state.bikes) {
