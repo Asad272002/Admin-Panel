@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+
+  --card: rgba(10, 10, 10, 0.03);
+  --card-foreground: #0a0a0a;
+
+  --muted: rgba(10, 10, 10, 0.05);
+  --muted-foreground: rgba(10, 10, 10, 0.7);
+
+  --primary: #0a0a0a;
+  --primary-foreground: #ffffff;
+
+  --accent: rgba(10, 10, 10, 0.06);
+  --accent-foreground: #0a0a0a;
+
+  --border: rgba(10, 10, 10, 0.12);
+  --ring: rgba(10, 10, 10, 0.25);
+
+  --radius: 14px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0b0b0d;
+  --foreground: #f2f2f3;
+
+  --card: rgba(255, 255, 255, 0.06);
+  --card-foreground: #f2f2f3;
+
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: rgba(242, 242, 243, 0.7);
+
+  --primary: #f2f2f3;
+  --primary-foreground: #0b0b0d;
+
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: #f2f2f3;
+
+  --border: rgba(255, 255, 255, 0.12);
+  --ring: rgba(255, 255, 255, 0.22);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
