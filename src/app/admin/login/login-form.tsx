@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -11,8 +10,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { loginSchema, type LoginInput } from "@/lib/validations/catalog.schema";
 
 export default function LoginForm({ nextPath }: { nextPath: string }) {
-  const router = useRouter();
-
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
     defaultValues: { username: "", password: "" },
@@ -31,6 +28,7 @@ export default function LoginForm({ nextPath }: { nextPath: string }) {
               method: "POST",
               headers: { "content-type": "application/json" },
               body: JSON.stringify(values),
+              credentials: "include",
             });
             const json = (await res.json().catch(() => null)) as unknown;
             if (!res.ok) {
@@ -42,7 +40,7 @@ export default function LoginForm({ nextPath }: { nextPath: string }) {
               return;
             }
             toast.success("Welcome back");
-            router.push(nextPath);
+            window.location.assign(nextPath);
           })}
         >
           <div className="space-y-1">
@@ -91,4 +89,3 @@ export default function LoginForm({ nextPath }: { nextPath: string }) {
     </Card>
   );
 }
-
